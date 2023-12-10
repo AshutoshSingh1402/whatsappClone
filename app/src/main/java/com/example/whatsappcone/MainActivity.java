@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.whatsappcone.Adapter.FragmentAdapter;
 import com.example.whatsappcone.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     setSupportActionBar(toolbar);
     getSupportActionBar().setTitle("WhatsApp");
     mAuth = FirebaseAuth.getInstance();
+
+    binding.viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
+    binding.tabLayout.setupWithViewPager(binding.viewPager);
   }
 
   @Override
@@ -40,18 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//    switch (item.getItemId()) {
-//      case R.id.toolbar: {
-//        Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
-//        break;
-//      }
-//      case R.id.groupChat: {
-//        Toast.makeText(this, "groupChat", Toast.LENGTH_SHORT).show();
-//      }
-//      case R.id.logout: {
-//        Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
-//      }
-//    }
     if (item.getItemId() == R.id.settings) {
       Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
     } else if (item.getItemId() == R.id.groupChat) {
