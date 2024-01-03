@@ -4,7 +4,6 @@ public class Users {
   String profilePic, username, mailId, password, userId, lastMessage, status;
 
   public Users() {
-
   }
 
   public Users(String username, String mailId, String password) {

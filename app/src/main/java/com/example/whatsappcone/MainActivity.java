@@ -3,14 +3,12 @@ package com.example.whatsappcone;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.example.whatsappcone.Adapter.FragmentAdapter;
 import com.example.whatsappcone.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu, menu);
-    System.out.println(R.id.settings);
     return super.onCreateOptionsMenu(menu);
   }
 
