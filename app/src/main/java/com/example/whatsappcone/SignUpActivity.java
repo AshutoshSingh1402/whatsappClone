@@ -1,5 +1,4 @@
 package com.example.whatsappcone;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -67,11 +66,6 @@ public class SignUpActivity extends AppCompatActivity {
       public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
           String id = task.getResult().getUser().getUid();
-          System.out.println(id);
-
-          System.out.println(binding.editTextUsername.getText().toString());
-          System.out.println(binding.editTextPassword.getText().toString());
-          System.out.println(binding.editTextEmail.getText().toString());
           Users user = new Users(binding.editTextUsername.getText().toString(), binding.editTextEmail.getText().toString(), binding.editTextPassword.getText().toString());
           DatabaseReference reference = database.getReference("Users");
           reference.child(id).setValue(user)
@@ -83,7 +77,6 @@ public class SignUpActivity extends AppCompatActivity {
                   Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                   startActivity(intent);
                 } else {
-                  System.out.println(task.getException());
                   Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
               }

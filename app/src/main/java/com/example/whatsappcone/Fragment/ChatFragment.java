@@ -51,7 +51,6 @@ public class ChatFragment extends Fragment {
     database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
       @Override
       public void onDataChange(@NonNull DataSnapshot snapshot) {
-        System.out.println(snapshot.getChildren());
         for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
           Users user = dataSnapshot.getValue(Users.class);
           user.setUserId(dataSnapshot.getKey());
