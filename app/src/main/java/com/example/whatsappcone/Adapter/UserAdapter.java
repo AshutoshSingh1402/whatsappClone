@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsappcone.ChatActivity;
 import com.example.whatsappcone.Models.Users;
 import com.example.whatsappcone.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -38,7 +40,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
   public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, int position) {
     Users user = usersList.get(position);
     Picasso.get().load(user.getProfilePic()).placeholder(R.drawable.avatar3).into(holder.profileImage);
+    // todo find last message of user
+//    FirebaseDatabase.getInstance().getReference().child("Chats")
+//                    .child(FirebaseAuth.getInstance())
     holder.username.setText(user.getUsername());
+    holder.lastMessage.setText("");
     holder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {

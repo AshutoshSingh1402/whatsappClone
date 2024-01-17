@@ -1,7 +1,7 @@
 package com.example.whatsappcone.Models;
 
 public class Users {
-  String profilePic, username, mailId, password, userId, lastMessage, status;
+  String profilePic, username, mailId, password, userId, lastMessage, status, about;
 
   public Users() {
   }
@@ -76,5 +76,13 @@ public class Users {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public String getAbout() {
+    return about;
+  }
+
+  public void setAbout(String about) {
+    this.about = about;
   }
 }
